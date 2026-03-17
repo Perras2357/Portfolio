@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de développeur – présentation de mes projets et compétences." />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">Portfolio</a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="hero-greeting">Bonjour, je suis</p>
+        <h1 class="hero-name">Votre Nom</h1>
+        <p class="hero-role">Développeur Full Stack</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+          <a href="#contact" class="btn btn-outline">Me contacter</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Défiler</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">À propos</h2>
+        <div class="about-grid">
+          <div class="about-avatar">
+            <div class="avatar-placeholder">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="38" r="22" fill="currentColor" opacity="0.7"/>
+                <ellipse cx="50" cy="90" rx="35" ry="22" fill="currentColor" opacity="0.7"/>
+              </svg>
+            </div>
+          </div>
+          <div class="about-text">
+            <p>
+              Passionné par le développement web, je crée des applications modernes, performantes et accessibles.
+              Mon objectif est de concevoir des expériences utilisateurs de qualité, du frontend au backend.
+            </p>
+            <p>
+              Je travaille principalement avec <strong>Python / Django</strong>, <strong>JavaScript</strong> et les technologies <strong>Docker</strong>.
+              J'aime explorer de nouvelles technologies et relever des défis techniques.
+            </p>
+            <a href="#contact" class="btn btn-primary">Entrer en contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon skill-icon--frontend">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16l-1.5 13.5L12 19l-6.5-2.5L4 3zm2.2 2 .9 8.3L12 17l4.9-3.7.9-8.3H6.2z" fill="currentColor"/></svg>
+            </div>
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML5 &amp; CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>Design Responsive</li>
+              <li>Accessibilité</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon skill-icon--backend">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 2c1.1 0 2.1.2 3 .5L7.5 17a8 8 0 0 1 4.5-13zm4.5 2.5A8 8 0 0 1 12 20a8 8 0 0 1-3-.6L16.5 6.5z" fill="currentColor"/></svg>
+            </div>
+            <h3>Backend</h3>
+            <ul>
+              <li>Python</li>
+              <li>Django</li>
+              <li>REST API</li>
+              <li>SQL / PostgreSQL</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon skill-icon--devops">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>DevOps</h3>
+            <ul>
+              <li>Docker</li>
+              <li>Docker Compose</li>
+              <li>Linux</li>
+              <li>Git &amp; CI/CD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title">Projets</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header project-header--blue">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </div>
+            <div class="project-body">
+              <h3>Portfolio Statique</h3>
+              <p>Portfolio personnel servi par nginx dans un conteneur Docker. Site responsive avec animations CSS.</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Docker</span>
+                <span class="tag">nginx</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header project-header--green">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </div>
+            <div class="project-body">
+              <h3>Portfolio Dynamique</h3>
+              <p>Version avancée du portfolio avec backend Django, API REST et base de données PostgreSQL.</p>
+              <div class="project-tags">
+                <span class="tag">Django</span>
+                <span class="tag">Python</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--placeholder">
+            <div class="project-header project-header--gray">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="project-body">
+              <h3>Prochain projet</h3>
+              <p>D'autres projets arrivent bientôt. Restez à l'écoute !</p>
+              <div class="project-tags">
+                <span class="tag">À venir</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p>Vous avez un projet, une question ou souhaitez simplement échanger ? N'hésitez pas à me contacter.</p>
+            <ul class="contact-list">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                <a href="mailto:contact@example.com">contact@example.com</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                <a href="https://github.com/Perras2357" target="_blank" rel="noopener noreferrer">github.com/Perras2357</a>
+              </li>
+            </ul>
+          </div>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input type="text" id="name" name="name" placeholder="Votre nom" autocomplete="name" required />
+              <span class="form-error" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email" required />
+              <span class="form-error" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+              <span class="form-error" id="message-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span class="btn-text">Envoyer le message</span>
+            </button>
+            <p class="form-notice" id="form-notice" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Portfolio. Construit avec HTML, CSS &amp; Docker.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
