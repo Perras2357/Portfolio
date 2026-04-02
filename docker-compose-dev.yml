@@ -1,0 +1,12 @@
+# docker-compose.yml — ajoute ça temporairement en dev
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    restart: always
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./src:/usr/share/nginx/html:ro   # ← montage direct
+    networks:
+      - proxy
