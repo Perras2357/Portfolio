@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moïse NDAM PERRAS — Infrastructure Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <div class="nav-brand">Perras<span>.fr</span></div>
+    <div class="nav-links">
+      <a href="#architecture">Architecture</a>
+      <a href="#scenario">Scénario</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="mailto:moiseperras2357@gmail.com" class="nav-cta">Me contacter</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner wrap" style="padding-top:0;padding-bottom:0;">
+
+    <div>
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Disponible — CDI Juillet. 2026
+      </div>
+      <h1>Moïse<br><span class="dim">NDAM PERRAS</span></h1>
+      <p class="hero-sub">
+        Étudiant Master <strong>Informatique Décisionnelle</strong> @ Paris Saclay.<br>
+        Je conçois et administre une infrastructure complète — cluster Proxmox,
+        SSO Keycloak, monitoring Grafana, Nextcloud, réseau Tailscale —
+        <strong>en production, 24/7, sur mes propres machines.</strong>
+      </p>
+      <div class="hero-actions">
+        <a href="#scenario" class="btn btn-primary">Explorer le lab →</a>
+	<a href="https://github.com/Perras2357" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#" class="btn btn-outline">CV PDF</a>
+      </div>
+    </div>
+
+    <!-- Panel Proxmox -->
+    <div class="hero-panel">
+      <div class="panel-header">
+        <div class="mac-dot mac-red"></div>
+        <div class="mac-dot mac-yellow"></div>
+        <div class="mac-dot mac-green"></div>
+        <div class="panel-title">perras-pve-01 — Datacenter</div>
+      </div>
+      <div class="lxc-grid">
+        <div class="lxc-item"><span class="lxc-name">101 · wiki</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">102 · openldap</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">103 · postgresql</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">104 · keycloak</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">105 · nextcloud</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">106 · grafana</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">107 · influxdb</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">108 · postfix</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">109 · emby</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">110 · mail</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">111 · jellyfin</span><span class="lxc-pill">running</span></div>
+        <div class="lxc-item"><span class="lxc-name">112 · jumpserver</span><span class="lxc-pill">running</span></div>
+      </div>
+      <div class="panel-footer">
+        <span>Proxmox VE 9.1.4 · 2 nœuds</span>
+        <span>Uptime <strong>18j 03h</strong></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ARCHITECTURE -->
+<section id="architecture">
+  <div class="wrap">
+    <p class="eyebrow reveal">Infrastructure</p>
+    <h2 class="section-title reveal">Architecture du Lab</h2>
+    <p class="section-sub reveal">
+      Deux machines physiques en cluster Proxmox, une quinzaine de conteneurs LXC,
+      exposés via un VPS public grâce à un réseau privé Tailscale —
+      zéro port ouvert sur le réseau domestique.
+    </p>
+
+    <div class="arch-card reveal">
+      <div class="arch-layers">
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">Internet</div>
+          <div class="arch-layer-content">
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>HTTPS :443</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>HTTP :80 → redirect</div>
+            <div class="arch-chip chip-gray"><div class="arch-chip-dot"></div>DNS public</div>
+          </div>
+        </div>
+
+        <div class="flow-note">↓ tout le trafic arrive sur le VPS — aucun port ouvert côté domicile</div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">VPS public</div>
+          <div class="arch-layer-content">
+            <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>Nginx Reverse Proxy</div>
+            <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>Let's Encrypt SSL</div>
+            <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>UFW Firewall</div>
+            <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>Tailscale node</div>
+          </div>
+        </div>
+
+        <div class="flow-note">↓ tunnel chiffré Tailscale (WireGuard) vers le cluster à domicile</div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">Réseau privé</div>
+          <div class="arch-layer-content">
+            <div class="arch-chip chip-teal"><div class="arch-chip-dot"></div>Tailscale Mesh (WireGuard)</div>
+            <div class="arch-chip chip-gray"><div class="arch-chip-dot"></div>100.x.x.x / Tailnet</div>
+          </div>
+        </div>
+
+        <div class="flow-note">↓ les paquets atteignent le cluster Proxmox</div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">Cluster Proxmox</div>
+          <div class="arch-layer-content">
+            <div class="arch-chip chip-rose"><div class="arch-chip-dot"></div>perras-pve-01 (nœud 1)</div>
+            <div class="arch-chip chip-rose"><div class="arch-chip-dot"></div>perras-pve-02 (nœud 2)</div>
+            <div class="arch-chip chip-gray"><div class="arch-chip-dot"></div>HA · Corosync</div>
+            <div class="arch-chip chip-gray"><div class="arch-chip-dot"></div>Proxmox Backup Server</div>
+          </div>
+        </div>
+
+        <div class="flow-note">↓ chaque service tourne dans son propre LXC isolé</div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">Services LXC</div>
+          <div class="arch-layer-content">
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Keycloak SSO</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Nextcloud</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Grafana</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Wiki</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Jellyfin</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Jumpserver</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Mail</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>OpenLDAP</div>
+          </div>
+        </div>
+
+        <div class="flow-note">↓ toutes les apps partagent la même instance PostgreSQL centralisée</div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">Données</div>
+          <div class="arch-layer-content">
+            <div class="arch-chip chip-green"><div class="arch-chip-dot"></div>PostgreSQL centralisé (LXC 103)</div>
+            <div class="arch-chip chip-green"><div class="arch-chip-dot"></div>InfluxDB (métriques)</div>
+            <div class="arch-chip chip-gray"><div class="arch-chip-dot"></div>Backups PBS</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- SCENARIO -->
+<section id="scenario">
+  <div class="wrap">
+    <p class="eyebrow reveal">Visite guidée</p>
+    <h2 class="section-title reveal">Explorez l'infrastructure</h2>
+    <p class="section-sub reveal">
+      Chaque étape vous fait traverser une couche réelle de l'architecture.
+      Des crédentiels de démo sont fournis — suivez l'ordre pour vivre le parcours complet.
+    </p>
+
+    <div class="scenario-intro reveal">
+      <strong>Comment fonctionne ce scénario ?</strong> En suivant ces 5 étapes dans l'ordre,
+      vous allez vous authentifier via SSO, consulter des dashboards de monitoring en temps réel,
+      accéder à un espace de stockage partagé et lire la documentation technique —
+      exactement comme un membre d'équipe rejoignant l'infrastructure.
+    </div>
+
+    <div class="steps">
+
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-label">Authentification</div>
+          <div class="step-title">Connexion SSO via Keycloak</div>
+          <p class="step-desc">
+            Toute l'infrastructure est protégée par un SSO Keycloak fédéré avec OpenLDAP.
+            Un seul compte vous donne accès à tous les services. Connectez-vous avec le compte
+            visiteur — vous verrez le token JWT être émis et réutilisé sur les étapes suivantes.
+          </p>
+          <div class="step-creds">
+            <div class="cred">Login : <strong>guest</strong></div>
+            <div class="cred">Mot de passe : <strong>guest2026!</strong></div>
+          </div>
+          <a href="https://keycloak.perras.fr/realms/KeycloakTest/protocol/openid-connect/auth?state=9e5de565f8cdaca2f3f392d86337ce57&scope=openid%20profile%20email&response_type=code&approval_prompt=auto&code_challenge=aNXf6dNy8e-B8kdeNa8q2od1-jPJcwIKTg4zPdcgohg&code_challenge_method=S256&redirect_uri=https%3A%2F%2Fwiki.perras.fr%2Foidc%2Fcallback&client_id=wikiperras" class="step-link">Ouvrir Keycloak</a>
+          <div class="step-tags">
+            <span class="tag">Keycloak</span>
+            <span class="tag">OpenLDAP</span>
+            <span class="tag">OAuth2 / OIDC</span>
+            <span class="tag">JWT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-label">Monitoring</div>
+          <div class="step-title">Dashboards Grafana en direct</div>
+          <p class="step-desc">
+            InfluxDB collecte les métriques de chaque LXC toutes les 30 secondes.
+            Le dashboard affiche CPU, RAM, disk I/O et réseau en temps réel pour l'ensemble
+            du cluster. Vous voyez l'état exact de la machine que vous êtes en train d'utiliser.
+          </p>
+          <a href="https://grafana.perras.fr" class="step-link">Ouvrir Grafana</a>
+          <div class="step-tags">
+            <span class="tag">Grafana</span>
+            <span class="tag">InfluxDB</span>
+            <span class="tag">Telegraf</span>
+            <span class="tag">Monitoring temps réel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-label">Stockage</div>
+          <div class="step-title">Nextcloud — Espace partagé</div>
+          <p class="step-desc">
+            Nextcloud tourne en LXC avec PostgreSQL comme base de données backend.
+            Un dossier "Visiteurs" est accessible en lecture — schémas d'architecture,
+            configs anonymisées et notes techniques. L'authentification passe par le SSO Keycloak.
+          </p>
+          <a href="https://nimbus.perras.fr" class="step-link">Ouvrir Nextcloud</a>
+          <div class="step-tags">
+            <span class="tag">Nextcloud</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">SSO intégré</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-label">Documentation</div>
+          <div class="step-title">Wiki — Architecture & Runbooks</div>
+          <p class="step-desc">
+            Le wiki documente chaque service : procédures d'installation, choix techniques,
+            runbooks de dépannage. C'est ici que je regarde en premier si un service tombe à 3h du matin.
+            Accessible en lecture sans compte.
+          </p>
+          <a href="https://wiki.perras.fr" class="step-link">Ouvrir le Wiki</a>
+          <div class="step-tags">
+            <span class="tag">Wiki.js</span>
+            <span class="tag">Documentation as Code</span>
+            <span class="tag">Runbooks</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-label">Bastionhost</div>
+          <div class="step-title">Jumpserver — Accès SSH supervisé</div>
+          <p class="step-desc">
+            Le Jumpserver (LXC 112) centralise tous les accès SSH aux machines du cluster
+            avec enregistrement des sessions, gestion des permissions par rôle et MFA.
+            En démonstration : accès à l'interface en lecture seule, sans exécution de commandes.
+          </p>
+          <a href="https://bifrost.perras.fr" class="step-link">Ouvrir Jumpserver</a>
+          <div class="step-tags">
+            <span class="tag">Jumpserver</span>
+            <span class="tag">SSH Bastion</span>
+            <span class="tag">Session recording</span>
+            <span class="tag">RBAC</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <p class="eyebrow reveal">Compétences</p>
+    <h2 class="section-title reveal">Stack Technique</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-title">Virtualisation & Infrastructure</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Proxmox VE</span>
+          <span class="skill-chip">LXC</span>
+          <span class="skill-chip">Cluster HA</span>
+          <span class="skill-chip">PBS Backup</span>
+          <span class="skill-chip">Tailscale</span>
+          <span class="skill-chip">WireGuard</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔐</div>
+        <div class="skill-title">Sécurité & Identité</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Keycloak</span>
+          <span class="skill-chip">OpenLDAP</span>
+          <span class="skill-chip">OAuth2 / OIDC</span>
+          <span class="skill-chip">Jumpserver</span>
+          <span class="skill-chip">Let's Encrypt</span>
+          <span class="skill-chip">UFW</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <div class="skill-title">Monitoring & Observabilité</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Grafana</span>
+          <span class="skill-chip">InfluxDB</span>
+          <span class="skill-chip">Telegraf</span>
+          <span class="skill-chip">Alerting</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🗃️</div>
+        <div class="skill-title">Bases de Données</div>
+        <div class="skill-chips">
+          <span class="skill-chip">PostgreSQL</span>
+          <span class="skill-chip">MySQL / MariaDB</span>
+          <span class="skill-chip">Oracle</span>
+          <span class="skill-chip">BigQuery</span>
+          <span class="skill-chip">DBT Core</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-title">DevOps & Automatisation</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Docker / Compose</span>
+          <span class="skill-chip">GitLab CI/CD</span>
+          <span class="skill-chip">Ansible</span>
+          <span class="skill-chip">Jenkins</span>
+          <span class="skill-chip">Bash</span>
+          <span class="skill-chip">Nginx</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📡</div>
+        <div class="skill-title">Data & Big Data</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Apache NiFi</span>
+          <span class="skill-chip">Kafka</span>
+          <span class="skill-chip">Hadoop / Hive</span>
+          <span class="skill-chip">Power BI</span>
+          <span class="skill-chip">Python / Pandas</span>
+          <span class="skill-chip">Talend</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Contact</p>
+    <h2 class="section-title reveal">Discutons</h2>
+    <p class="section-sub reveal">
+      Je cherche un CDI à partir de Juillet2026,
+      idéalement en data engineering ou DevOps.
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:moiseperras2357@gmail.com" class="contact-card reveal">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">moiseperras2357@gmail.com</div>
+      </a>
+      <a href="https://www.linkedin.com/in/mo%C3%AFse-ndam-perras/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bf%2BfCwP19T4KefG9svNEvtA%3D%3D" class="contact-card reveal">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">Moïse NDAM PERRAS</div>
+      </a>
+      <a href="tel:+33605591535" class="contact-card reveal">
+        <div class="contact-label">Téléphone</div>
+        <div class="contact-value">+33 6 05 59 15 35</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-copy">© 2025 Moïse NDAM PERRAS</div>
+    <div class="footer-status">
+      <div class="status-dot"></div>
+      Tous les services opérationnels
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

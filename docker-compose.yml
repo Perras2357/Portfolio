@@ -1,0 +1,13 @@
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    restart: always  # Une seule fois ici
+    ports:
+      - "127.0.0.1:8080:80"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
