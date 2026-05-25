@@ -2,7 +2,10 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio de Moïse PERRAS, Étudiant Master Informatique. Découvrez mes projets en Big Data et infrastructure.">
 <title>Moïse NDAM PERRAS — Infrastructure Lab</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -12,7 +15,7 @@
 <!-- NAV -->
 <nav>
   <div class="wrap">
-    <div class="nav-brand">Perras<span>.lab</span></div>
+    <div class="nav-brand">Perras<span>.fr</span></div>
     <div class="nav-links">
       <a href="#architecture">Architecture</a>
       <a href="#scenario">Scénario</a>
@@ -23,6 +26,7 @@
   </div>
 </nav>
 
+<main id="content">
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner wrap" style="padding-top:0;padding-bottom:0;">
@@ -200,10 +204,10 @@
             visiteur — vous verrez le token JWT être émis et réutilisé sur les étapes suivantes.
           </p>
           <div class="step-creds">
-            <div class="cred">Login : <strong>visitor@lab.perras.dev</strong></div>
-            <div class="cred">Mot de passe : <strong>Visit2025!</strong></div>
+            <div class="cred">Login : <strong>guest</strong></div>
+            <div class="cred">Mot de passe : <strong>guest2026!</strong></div>
           </div>
-          <a href="https://auth.lab.perras.dev" class="step-link">Ouvrir Keycloak</a>
+          <a href="https://keycloak.perras.fr/realms/KeycloakTest/protocol/openid-connect/auth?state=9e5de565f8cdaca2f3f392d86337ce57&scope=openid%20profile%20email&response_type=code&approval_prompt=auto&code_challenge=aNXf6dNy8e-B8kdeNa8q2od1-jPJcwIKTg4zPdcgohg&code_challenge_method=S256&redirect_uri=https%3A%2F%2Fwiki.perras.fr%2Foidc%2Fcallback&client_id=wikiperras" class="step-link">Ouvrir Keycloak</a>
           <div class="step-tags">
             <span class="tag">Keycloak</span>
             <span class="tag">OpenLDAP</span>
@@ -223,7 +227,7 @@
             Le dashboard affiche CPU, RAM, disk I/O et réseau en temps réel pour l'ensemble
             du cluster. Vous voyez l'état exact de la machine que vous êtes en train d'utiliser.
           </p>
-          <a href="https://grafana.lab.perras.dev" class="step-link">Ouvrir Grafana</a>
+          <a href="https://grafana.perras.fr" class="step-link">Ouvrir Grafana</a>
           <div class="step-tags">
             <span class="tag">Grafana</span>
             <span class="tag">InfluxDB</span>
@@ -243,7 +247,7 @@
             Un dossier "Visiteurs" est accessible en lecture — schémas d'architecture,
             configs anonymisées et notes techniques. L'authentification passe par le SSO Keycloak.
           </p>
-          <a href="https://cloud.lab.perras.dev" class="step-link">Ouvrir Nextcloud</a>
+          <a href="https://nimbus.perras.fr" class="step-link">Ouvrir Nextcloud</a>
           <div class="step-tags">
             <span class="tag">Nextcloud</span>
             <span class="tag">PostgreSQL</span>
@@ -262,7 +266,7 @@
             runbooks de dépannage. C'est ici que je regarde en premier si un service tombe à 3h du matin.
             Accessible en lecture sans compte.
           </p>
-          <a href="https://wiki.lab.perras.dev" class="step-link">Ouvrir le Wiki</a>
+          <a href="https://wiki.perras.fr" class="step-link">Ouvrir le Wiki</a>
           <div class="step-tags">
             <span class="tag">Wiki.js</span>
             <span class="tag">Documentation as Code</span>
@@ -281,7 +285,7 @@
             avec enregistrement des sessions, gestion des permissions par rôle et MFA.
             En démonstration : accès à l'interface en lecture seule, sans exécution de commandes.
           </p>
-          <a href="https://jump.lab.perras.dev" class="step-link">Ouvrir Jumpserver</a>
+          <a href="https://bifrost.perras.fr" class="step-link">Ouvrir Jumpserver</a>
           <div class="step-tags">
             <span class="tag">Jumpserver</span>
             <span class="tag">SSH Bastion</span>
@@ -404,6 +408,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -416,6 +421,6 @@
   </div>
 </footer>
 
-<script src="scripts.js"></script>
+<script src="scripts.js" defer></script>
 </body>
 </html>
