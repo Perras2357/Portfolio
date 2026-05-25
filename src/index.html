@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio de Moïse PERRAS, Étudiant Master Informatique. Découvrez mes projets en Big Data et infrastructure.">
-<title>Moïse NDAM PERRAS — Infrastructure Lab</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Moïse NDAM PERRAS — Ingénieur Data & DevOps</title>
+  <meta name="description" content="Portfolio technique de Moïse NDAM PERRAS. Découvrez mon infrastructure lab (Proxmox, Keycloak, Headscale) et mes compétences en Data Engineering et automatisation.">
+
+  <meta property="og:title" content="Moïse NDAM PERRAS — Infrastructure Lab">
+  <meta property="og:description" content="Découvrez mon architecture homelab en production : cluster Proxmox, SSO Keycloak, et stack Data/DevOps complète.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://perras.fr/">
+  <meta property="og:image" content="https://perras.fr/ressources/favicon/og-image.jpg">
+  <meta property="og:site_name" content="Portfolio de Moïse NDAM PERRAS">
+
+  <link rel="icon" href="ressources/favicon/favicon.ico" sizes="any">
+  <link rel="icon" href="ressources/favicon/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="ressources/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="ressources/favicon/site.webmanifest">
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -40,12 +52,13 @@
       <p class="hero-sub">
         Étudiant Master <strong>Informatique Décisionnelle</strong> @ Paris Saclay.<br>
         Je conçois et administre une infrastructure complète — cluster Proxmox,
-        SSO Keycloak, monitoring Grafana, Nextcloud, réseau Tailscale —
+        SSO Keycloak, monitoring Grafana, Nextcloud, réseau Headscale —
         <strong>en production, 24/7, sur mes propres machines.</strong>
       </p>
       <div class="hero-actions">
         <a href="#scenario" class="btn btn-primary">Explorer le lab →</a>
-	<a href="https://github.com/Perras2357" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+	      <a href="https://github.com/Perras2357" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://gitlab.com/Perras2357" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitLab</a>
         <a href="#" class="btn btn-outline">CV PDF</a>
       </div>
     </div>
@@ -90,7 +103,7 @@
     <h2 class="section-title reveal">Architecture du Lab</h2>
     <p class="section-sub reveal">
       Deux machines physiques en cluster Proxmox, une quinzaine de conteneurs LXC,
-      exposés via un VPS public grâce à un réseau privé Tailscale —
+      exposés via un VPS public grâce à un réseau privé Headscale —
       zéro port ouvert sur le réseau domestique.
     </p>
 
@@ -114,16 +127,16 @@
             <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>Nginx Reverse Proxy</div>
             <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>Let's Encrypt SSL</div>
             <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>UFW Firewall</div>
-            <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>Tailscale node</div>
+            <div class="arch-chip chip-amber"><div class="arch-chip-dot"></div>Headscale node</div>
           </div>
         </div>
 
-        <div class="flow-note">↓ tunnel chiffré Tailscale (WireGuard) vers le cluster à domicile</div>
+        <div class="flow-note">↓ tunnel chiffré Headscale (WireGuard) vers le cluster à domicile</div>
 
         <div class="arch-layer">
           <div class="arch-layer-label">Réseau privé</div>
           <div class="arch-layer-content">
-            <div class="arch-chip chip-teal"><div class="arch-chip-dot"></div>Tailscale Mesh (WireGuard)</div>
+            <div class="arch-chip chip-teal"><div class="arch-chip-dot"></div>Headscale Mesh (WireGuard)</div>
             <div class="arch-chip chip-gray"><div class="arch-chip-dot"></div>100.x.x.x / Tailnet</div>
           </div>
         </div>
@@ -316,7 +329,7 @@
           <span class="skill-chip">LXC</span>
           <span class="skill-chip">Cluster HA</span>
           <span class="skill-chip">PBS Backup</span>
-          <span class="skill-chip">Tailscale</span>
+          <span class="skill-chip">Headscale</span>
           <span class="skill-chip">WireGuard</span>
         </div>
       </div>
