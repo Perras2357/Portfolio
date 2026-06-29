@@ -19,7 +19,9 @@
   <link rel="apple-touch-icon" href="ressources/favicon/apple-touch-icon.png">
   <link rel="manifest" href="ressources/favicon/site.webmanifest">
 
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet"> -->
+   <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> -->
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,16 +31,23 @@
   <div class="wrap">
     <div class="nav-brand">Perras<span>.fr</span></div>
     <div class="nav-links">
+      <a href="#apropos">À propos</a>
       <a href="#architecture">Architecture</a>
-      <a href="#scenario">Scénario</a>
+      <a href="#scenario">Lab</a>
       <a href="#stack">Stack</a>
+      <a href="#projets">Projets</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="mailto:moiseperras2357@gmail.com" class="nav-cta">Me contacter</a>
+
+    <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 18px; margin-right: 16px;" aria-label="Changer de thème">
+      <span id="theme-icon" src="ressources/favicon/icons8-soleil-48.png"></span>
+    </button>
   </div>
 </nav>
 
 <main id="content">
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner wrap" style="padding-top:0;padding-bottom:0;">
@@ -46,20 +55,27 @@
     <div>
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
-        Disponible — CDI Juillet. 2026
+        Disponible — CDI Septembre 2026
       </div>
-      <h1>Moïse<br><span class="dim">NDAM PERRAS</span></h1>
+      <h1>Moïse<br><span class="dim">PERRAS</span></h1>
       <p class="hero-sub">
-        Étudiant Master <strong>Informatique Décisionnelle</strong> @ Paris Saclay.<br>
-        Je conçois et administre une infrastructure complète — cluster Proxmox,
-        SSO Keycloak, monitoring Grafana, Nextcloud, réseau Headscale —
-        <strong>en production, 24/7, sur mes propres machines.</strong>
+        Étudiant Master <strong>Informatique </strong> @ Paris Saclay.<br>
+        Je conçois et administre une infrastructure complète : cluster Proxmox,
+        SSO Keycloak, monitoring Grafana, Nextcloud, réseau Headscale. 
+        <strong>Sur mon HomeLab.</strong>
       </p>
+      <div class="hero-tags">
+        <span class="hero-tag">Data Engineering</span>
+        <span class="hero-tag">DevOps</span>
+        <span class="hero-tag">Proxmox</span>
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">Keycloak</span>
+      </div>
       <div class="hero-actions">
         <a href="#scenario" class="btn btn-primary">Explorer le lab →</a>
-	      <a href="https://github.com/Perras2357" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/Perras2357" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://gitlab.com/Perras2357" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitLab</a>
-        <a href="#" class="btn btn-outline">CV PDF</a>
+        <a href="ressources/CV_Moise_Perras.pdf" class="btn btn-outline" download="CV_Moise_Perras">CV PDF</a>
       </div>
     </div>
 
@@ -87,10 +103,63 @@
       </div>
       <div class="panel-footer">
         <span>Proxmox VE 9.1.4 · 2 nœuds</span>
-        <span>Uptime <strong>18j 03h</strong></span>
       </div>
     </div>
 
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="wrap">
+    <p class="eyebrow reveal">À propos</p>
+    <h2 class="section-title reveal">Qui suis-je ?</h2>
+
+    <div class="about-layout">
+      <div class="about-text reveal">
+        <p>
+          Je suis un ingénieur <strong>Data & DevOps</strong> qui aime concevoir des systèmes robustes,
+          des pipelines de données fiables et des infrastructures qui tiennent la route en production.
+          Mon terrain de jeu : <strong>Python, SQL, Proxmox, Ansible, Docker et les stacks Big Data.</strong>
+        </p>
+        <p>
+          Actuellement en <strong>Master Informatique à l'Université Paris Saclay</strong>,
+          je travaille sur des projets concrets: pipelines ETL, dashboards analytiques,
+          automatisation d'infrastructures. Pour consolider mes compétences techniques
+          et ma compréhension des besoins métiers.
+        </p>
+        <p>
+          Ce qui me motive : construire des infrastructures et des flux de données qui durent,
+          avec une documentation soignée, des pratiques DevOps solides et une vraie culture
+          de l'observabilité.
+        </p>
+      </div>
+
+      <div class="about-cards reveal">
+        <div class="about-card">
+          <div class="about-card-icon"><img src="ressources/favicon/icons8-degré-64.png"></div>
+          <div class="about-card-label">Formation</div>
+          <div class="about-card-value">Master Informatique · Université Paris Saclay</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon"><img src="ressources/favicon/icons8-paramètre-53.png"></div>
+          <div class="about-card-label">Stack principale</div>
+          <div class="about-card-value">Python, SQL, Proxmox, Docker, Ansible, GitLab CI/CD, Apache NiFi, Kafka, FastAPI</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon"><img src="ressources/favicon/icons8-poignée-de-main-48.png"></div>
+          <div class="about-card-label">Façon de travailler</div>
+          <div class="about-card-value">Documentation rigoureuse, infrastructure as code, monitoring systématique, itérations rapides</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon"><img src="ressources/favicon/icons8-objectifs-66.png"></div>
+          <div class="about-card-label">Objectif</div>
+          <div class="about-card-value">Rejoindre une équipe Data ou DevOps en CDI dès septembre 2026, idéalement sur des sujets d'infrastructure data et d'automatisation</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -102,9 +171,8 @@
     <p class="eyebrow reveal">Infrastructure</p>
     <h2 class="section-title reveal">Architecture du Lab</h2>
     <p class="section-sub reveal">
-      Deux machines physiques en cluster Proxmox, une quinzaine de conteneurs LXC,
-      exposés via un VPS public grâce à un réseau privé Headscale —
-      zéro port ouvert sur le réseau domestique.
+      Un cluster proxmox(deux noeuds), une quinzaine de conteneurs LXC,
+      exposés via un VPS public grâce à un réseau privé Headscale.
     </p>
 
     <div class="arch-card reveal">
@@ -119,7 +187,7 @@
           </div>
         </div>
 
-        <div class="flow-note">↓ tout le trafic arrive sur le VPS — aucun port ouvert côté domicile</div>
+        <div class="flow-note">↓ tout le trafic arrive sur le VPS</div>
 
         <div class="arch-layer">
           <div class="arch-layer-label">VPS public</div>
@@ -162,7 +230,7 @@
             <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Nextcloud</div>
             <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Grafana</div>
             <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Wiki</div>
-            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Jellyfin</div>
+            <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>GitLab</div>
             <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Jumpserver</div>
             <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>Mail</div>
             <div class="arch-chip chip-indigo"><div class="arch-chip-dot"></div>OpenLDAP</div>
@@ -174,7 +242,7 @@
         <div class="arch-layer">
           <div class="arch-layer-label">Données</div>
           <div class="arch-layer-content">
-            <div class="arch-chip chip-green"><div class="arch-chip-dot"></div>PostgreSQL centralisé (LXC 103)</div>
+            <div class="arch-chip chip-green"><div class="arch-chip-dot"></div>PostgreSQL centralisé</div>
             <div class="arch-chip chip-green"><div class="arch-chip-dot"></div>InfluxDB (métriques)</div>
             <div class="arch-chip chip-gray"><div class="arch-chip-dot"></div>Backups PBS</div>
           </div>
@@ -194,14 +262,15 @@
     <h2 class="section-title reveal">Explorez l'infrastructure</h2>
     <p class="section-sub reveal">
       Chaque étape vous fait traverser une couche réelle de l'architecture.
-      Des crédentiels de démo sont fournis — suivez l'ordre pour vivre le parcours complet.
+      Des crédentiels de démo sont fournis, suivez l'ordre pour vivre le parcours complet.
     </p>
 
     <div class="scenario-intro reveal">
       <strong>Comment fonctionne ce scénario ?</strong> En suivant ces 5 étapes dans l'ordre,
       vous allez vous authentifier via SSO, consulter des dashboards de monitoring en temps réel,
-      accéder à un espace de stockage partagé et lire la documentation technique —
-      exactement comme un membre d'équipe rejoignant l'infrastructure.
+      accéder à un espace de stockage partagé et lire la documentation technique, 
+      accéder au GitLab auto-hebergé et voir les différents pipelines CI/CD, 
+      visualiser les workFlow N8N.
     </div>
 
     <div class="steps">
@@ -214,13 +283,13 @@
           <p class="step-desc">
             Toute l'infrastructure est protégée par un SSO Keycloak fédéré avec OpenLDAP.
             Un seul compte vous donne accès à tous les services. Connectez-vous avec le compte
-            visiteur — vous verrez le token JWT être émis et réutilisé sur les étapes suivantes.
+            visiteur. Vous verrez le token JWT être émis et réutilisé sur les étapes suivantes.
           </p>
           <div class="step-creds">
             <div class="cred">Login : <strong>guest</strong></div>
             <div class="cred">Mot de passe : <strong>guest2026!</strong></div>
           </div>
-          <a href="https://keycloak.perras.fr/realms/KeycloakTest/protocol/openid-connect/auth?state=9e5de565f8cdaca2f3f392d86337ce57&scope=openid%20profile%20email&response_type=code&approval_prompt=auto&code_challenge=aNXf6dNy8e-B8kdeNa8q2od1-jPJcwIKTg4zPdcgohg&code_challenge_method=S256&redirect_uri=https%3A%2F%2Fwiki.perras.fr%2Foidc%2Fcallback&client_id=wikiperras" class="step-link">Ouvrir Keycloak</a>
+          <a href="https://keycloak.perras.fr/realms/KeycloakTest/protocol/openid-connect/auth?state=9e5de565f8cdaca2f3f392d86337ce57&scope=openid%20profile%20email&response_type=code&approval_prompt=auto&code_challenge=aNXf6dNy8e-B8kdeNa8q2od1-jPJcwIKTg4zPdcgohg&code_challenge_method=S256&redirect_uri=https%3A%2F%2Fwiki.perras.fr%2Foidc%2Fcallback&client_id=wikiperras" class="step-link" target="_blank" rel="noopener noreferrer">Ouvrir Keycloak</a>
           <div class="step-tags">
             <span class="tag">Keycloak</span>
             <span class="tag">OpenLDAP</span>
@@ -240,7 +309,7 @@
             Le dashboard affiche CPU, RAM, disk I/O et réseau en temps réel pour l'ensemble
             du cluster. Vous voyez l'état exact de la machine que vous êtes en train d'utiliser.
           </p>
-          <a href="https://grafana.perras.fr" class="step-link">Ouvrir Grafana</a>
+          <a href="https://grafana.perras.fr" class="step-link" target="_blank" rel="noopener noreferrer">Ouvrir Grafana</a>
           <div class="step-tags">
             <span class="tag">Grafana</span>
             <span class="tag">InfluxDB</span>
@@ -254,13 +323,13 @@
         <div class="step-num">3</div>
         <div class="step-body">
           <div class="step-label">Stockage</div>
-          <div class="step-title">Nextcloud — Espace partagé</div>
+          <div class="step-title">Nextcloud: Espace partagé</div>
           <p class="step-desc">
             Nextcloud tourne en LXC avec PostgreSQL comme base de données backend.
-            Un dossier "Visiteurs" est accessible en lecture — schémas d'architecture,
+            Un dossier "Visiteurs" est accessible en lecture. Schémas d'architecture,
             configs anonymisées et notes techniques. L'authentification passe par le SSO Keycloak.
           </p>
-          <a href="https://nimbus.perras.fr" class="step-link">Ouvrir Nextcloud</a>
+          <a href="https://nimbus.perras.fr" class="step-link" target="_blank" rel="noopener noreferrer">Ouvrir Nextcloud</a>
           <div class="step-tags">
             <span class="tag">Nextcloud</span>
             <span class="tag">PostgreSQL</span>
@@ -273,13 +342,13 @@
         <div class="step-num">4</div>
         <div class="step-body">
           <div class="step-label">Documentation</div>
-          <div class="step-title">Wiki — Architecture & Runbooks</div>
+          <div class="step-title">Wiki: Architecture & Runbooks</div>
           <p class="step-desc">
             Le wiki documente chaque service : procédures d'installation, choix techniques,
             runbooks de dépannage. C'est ici que je regarde en premier si un service tombe à 3h du matin.
-            Accessible en lecture sans compte.
+            Accessible en lecture.
           </p>
-          <a href="https://wiki.perras.fr" class="step-link">Ouvrir le Wiki</a>
+          <a href="https://wiki.perras.fr" class="step-link" target="_blank" rel="noopener noreferrer">Ouvrir le Wiki</a>
           <div class="step-tags">
             <span class="tag">Wiki.js</span>
             <span class="tag">Documentation as Code</span>
@@ -292,13 +361,13 @@
         <div class="step-num">5</div>
         <div class="step-body">
           <div class="step-label">Bastionhost</div>
-          <div class="step-title">Jumpserver — Accès SSH supervisé</div>
+          <div class="step-title">Jumpserver</div>
           <p class="step-desc">
-            Le Jumpserver (LXC 112) centralise tous les accès SSH aux machines du cluster
+            Le Jumpserver centralise tous les accès SSH aux machines du cluster
             avec enregistrement des sessions, gestion des permissions par rôle et MFA.
             En démonstration : accès à l'interface en lecture seule, sans exécution de commandes.
           </p>
-          <a href="https://bifrost.perras.fr" class="step-link">Ouvrir Jumpserver</a>
+          <a href="https://bifrost.perras.fr" class="step-link" target="_blank" rel="noopener noreferrer">Ouvrir Jumpserver</a>
           <div class="step-tags">
             <span class="tag">Jumpserver</span>
             <span class="tag">SSH Bastion</span>
@@ -320,76 +389,386 @@
     <p class="eyebrow reveal">Compétences</p>
     <h2 class="section-title reveal">Stack Technique</h2>
 
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-icon">🗄️</div>
-        <div class="skill-title">Virtualisation & Infrastructure</div>
-        <div class="skill-chips">
-          <span class="skill-chip">Proxmox VE</span>
-          <span class="skill-chip">LXC</span>
-          <span class="skill-chip">Cluster HA</span>
-          <span class="skill-chip">PBS Backup</span>
-          <span class="skill-chip">Headscale</span>
-          <span class="skill-chip">WireGuard</span>
+    <div class="stack-categories">
+
+      <div class="stack-category reveal">
+        <div class="stack-category-header">
+          <div class="stack-category-icon"><img  src="ressources/favicon/icons8-base-de-données.gif"></div>
+          <div>
+            <div class="stack-category-title">Data & Big Data</div>
+            <div class="stack-category-sub">Pipelines, traitement et analyse de données à grande échelle.</div>
+          </div>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="tech-badge tech-python"><img src="ressources/favicon/icons8-python.gif"></div>
+            <span>Python / Pandas</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-sql"><img src="ressources/favicon/icons8-sql-64.png"></div>
+            <span>SQL avancé</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-nifi">NiFi</div>
+            <span>Apache NiFi</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-kafka"><img src="ressources/favicon/icons8-apache-kafka-64.png"></div>
+            <span>Kafka</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-hadoop"><img src="ressources/favicon/icons8-système-de-fichiers-distribué-hadoop-48.png"></div>
+            <span>Hadoop / Hive</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-dbt">dbt</div>
+            <span>DBT Core</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-bq">BQ</div>
+            <span>BigQuery</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-powerbi"><img src="ressources/favicon/icons8-puissance-bi-2021-48.png"></div>
+            <span>Power BI</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-talend">T</div>
+            <span>Talend</span>
+          </div>
         </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">🔐</div>
-        <div class="skill-title">Sécurité & Identité</div>
-        <div class="skill-chips">
-          <span class="skill-chip">Keycloak</span>
-          <span class="skill-chip">OpenLDAP</span>
-          <span class="skill-chip">OAuth2 / OIDC</span>
-          <span class="skill-chip">Jumpserver</span>
-          <span class="skill-chip">Let's Encrypt</span>
-          <span class="skill-chip">UFW</span>
+
+      <div class="stack-category reveal">
+        <div class="stack-category-header">
+          <div class="stack-category-icon"><img src="ressources/favicon/icons8-sgbd-32.png"></div>
+          <div>
+            <div class="stack-category-title">Bases de Données</div>
+            <div class="stack-category-sub">Stockage relationnel, transactionnel et métriques temps réel.</div>
+          </div>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="tech-badge tech-pg"><img src="ressources/favicon/icons8-postgresql-100.png"></div>
+            <span>PostgreSQL</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-mysql"><img src="ressources/favicon/icons8-maria-db-80.png"></div>
+            <span>MySQL / MariaDB</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-oracle"><img src="ressources/favicon/icons8-oracle-pl-sql-100.png"></div>
+            <span>Oracle</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-influx"><img src="ressources/favicon/icons8-maria-db-80.png"></div>
+            <span>InfluxDB</span>
+          </div>
         </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">📊</div>
-        <div class="skill-title">Monitoring & Observabilité</div>
-        <div class="skill-chips">
-          <span class="skill-chip">Grafana</span>
-          <span class="skill-chip">InfluxDB</span>
-          <span class="skill-chip">Telegraf</span>
-          <span class="skill-chip">Alerting</span>
+
+      <div class="stack-category reveal">
+        <div class="stack-category-header">
+          <div class="stack-category-icon">⚙️</div>
+          <div>
+            <div class="stack-category-title">DevOps & Automatisation</div>
+            <div class="stack-category-sub">Infrastructure as code, CI/CD et orchestration de conteneurs.</div>
+          </div>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="tech-badge tech-docker">D</div>
+            <span>Docker / Compose</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-ansible">A</div>
+            <span>Ansible</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-gitlab">GL</div>
+            <span>GitLab CI/CD</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-jenkins">J</div>
+            <span>Jenkins</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-bash">$_</div>
+            <span>Bash</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-nginx">N</div>
+            <span>Nginx</span>
+          </div>
         </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">🗃️</div>
-        <div class="skill-title">Bases de Données</div>
-        <div class="skill-chips">
-          <span class="skill-chip">PostgreSQL</span>
-          <span class="skill-chip">MySQL / MariaDB</span>
-          <span class="skill-chip">Oracle</span>
-          <span class="skill-chip">BigQuery</span>
-          <span class="skill-chip">DBT Core</span>
+
+      <div class="stack-category reveal">
+        <div class="stack-category-header">
+          <div class="stack-category-icon">🗄️</div>
+          <div>
+            <div class="stack-category-title">Virtualisation & Infrastructure</div>
+            <div class="stack-category-sub">Cluster bare-metal, conteneurs LXC et réseau mesh chiffré.</div>
+          </div>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="tech-badge tech-proxmox">PVE</div>
+            <span>Proxmox VE</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-lxc">LXC</div>
+            <span>LXC</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-wg">WG</div>
+            <span>WireGuard</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-headscale">HS</div>
+            <span>Headscale</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-linux">LX</div>
+            <span>Linux</span>
+          </div>
         </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">⚙️</div>
-        <div class="skill-title">DevOps & Automatisation</div>
-        <div class="skill-chips">
-          <span class="skill-chip">Docker / Compose</span>
-          <span class="skill-chip">GitLab CI/CD</span>
-          <span class="skill-chip">Ansible</span>
-          <span class="skill-chip">Jenkins</span>
-          <span class="skill-chip">Bash</span>
-          <span class="skill-chip">Nginx</span>
+
+      <div class="stack-category reveal">
+        <div class="stack-category-header">
+          <div class="stack-category-icon">🔐</div>
+          <div>
+            <div class="stack-category-title">Sécurité & Identité</div>
+            <div class="stack-category-sub">SSO, annuaire centralisé, accès SSH audité et chiffrement.</div>
+          </div>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="tech-badge tech-keycloak">KC</div>
+            <span>Keycloak</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-ldap">LDAP</div>
+            <span>OpenLDAP</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-oidc">OIDC</div>
+            <span>OAuth2 / OIDC</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-jump">JS</div>
+            <span>Jumpserver</span>
+          </div>
         </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon">📡</div>
-        <div class="skill-title">Data & Big Data</div>
-        <div class="skill-chips">
-          <span class="skill-chip">Apache NiFi</span>
-          <span class="skill-chip">Kafka</span>
-          <span class="skill-chip">Hadoop / Hive</span>
-          <span class="skill-chip">Power BI</span>
-          <span class="skill-chip">Python / Pandas</span>
-          <span class="skill-chip">Talend</span>
+
+      <div class="stack-category reveal">
+        <div class="stack-category-header">
+          <div class="stack-category-icon">📊</div>
+          <div>
+            <div class="stack-category-title">Monitoring & Observabilité</div>
+            <div class="stack-category-sub">Métriques temps réel, dashboards et alerting sur tout le cluster.</div>
+          </div>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="tech-badge tech-grafana">GF</div>
+            <span>Grafana</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-influx">INF</div>
+            <span>InfluxDB</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-badge tech-telegraf">TG</div>
+            <span>Telegraf</span>
+          </div>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="wrap">
+    <p class="eyebrow reveal">Réalisations</p>
+    <h2 class="section-title reveal">Projets</h2>
+    <p class="section-sub reveal">
+      Des projets techniques concrets, de l'infrastructure bare-metal aux pipelines de données.
+    </p>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-visual pv-infra">
+          <div class="pv-terminal">
+            <div class="pv-terminal-bar">
+              <span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span>
+              <span class="pv-title">cluster status</span>
+            </div>
+            <div class="pv-lines">
+              <div class="pv-line"><span class="pv-ok">✓</span> perras-pve-01 <span class="pv-dim">online</span></div>
+              <div class="pv-line"><span class="pv-ok">✓</span> perras-pve-02 <span class="pv-dim">online</span></div>
+              <div class="pv-line"><span class="pv-ok">✓</span> 12 LXC running</div>
+              <div class="pv-line"><span class="pv-ok">✓</span> PBS backup — OK</div>
+              <div class="pv-line pv-cursor">_</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Homelab Infrastructure</div>
+          <p class="project-desc">
+            Cluster Proxmox HA à 2 nœuds hébergeant une quinzaine de services LXC en production.
+            Réseau mesh WireGuard via Headscale, SSO Keycloak fédéré avec OpenLDAP,
+            monitoring Grafana/InfluxDB et backups automatisés via PBS.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Proxmox</span>
+            <span class="tag">Keycloak</span>
+            <span class="tag">Headscale</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">Ansible</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://wiki.perras.fr" class="project-btn" target="_blank" rel="noopener noreferrer">Wiki</a>
+            <a href="#scenario" class="project-btn project-btn-outline">Demo guidée</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-visual pv-data">
+          <div class="pv-pipeline">
+            <div class="pv-pipe-step">
+              <div class="pv-pipe-icon">S</div>
+              <div class="pv-pipe-label">Source</div>
+            </div>
+            <div class="pv-pipe-arrow">→</div>
+            <div class="pv-pipe-step">
+              <div class="pv-pipe-icon">NiFi</div>
+              <div class="pv-pipe-label">Ingest</div>
+            </div>
+            <div class="pv-pipe-arrow">→</div>
+            <div class="pv-pipe-step">
+              <div class="pv-pipe-icon">dbt</div>
+              <div class="pv-pipe-label">Transform</div>
+            </div>
+            <div class="pv-pipe-arrow">→</div>
+            <div class="pv-pipe-step">
+              <div class="pv-pipe-icon">BI</div>
+              <div class="pv-pipe-label">Rapport</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Pipeline ETL Data Engineering</div>
+          <p class="project-desc">
+            Pipeline d'ingestion et de transformation de données avec Apache NiFi pour
+            la collecte, DBT Core pour les transformations SQL et Power BI pour la restitution.
+            Architecture orientée qualité des données avec tests automatisés à chaque étape.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Apache NiFi</span>
+            <span class="tag">DBT Core</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Python</span>
+            <span class="tag">Power BI</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/Perras2357" class="project-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-visual pv-cicd">
+          <div class="pv-stages">
+            <div class="pv-stage pv-stage-done">
+              <div class="pv-stage-icon">✓</div>
+              <div class="pv-stage-name">Build</div>
+            </div>
+            <div class="pv-stage-line pv-line-done"></div>
+            <div class="pv-stage pv-stage-done">
+              <div class="pv-stage-icon">✓</div>
+              <div class="pv-stage-name">Test</div>
+            </div>
+            <div class="pv-stage-line pv-line-done"></div>
+            <div class="pv-stage pv-stage-active">
+              <div class="pv-stage-icon pv-spin">↻</div>
+              <div class="pv-stage-name">Deploy</div>
+            </div>
+            <div class="pv-stage-line"></div>
+            <div class="pv-stage">
+              <div class="pv-stage-icon pv-pending">○</div>
+              <div class="pv-stage-name">Monitor</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">CI/CD & Automatisation</div>
+          <p class="project-desc">
+            Mise en place d'une chaîne CI/CD complète avec GitLab CI/CD et Jenkins pour
+            le déploiement automatisé des services du lab. Provisionnement des LXC via Ansible
+            avec gestion des rôles, des templates et des variables d'environnement.
+          </p>
+          <div class="project-tags">
+            <span class="tag">GitLab CI/CD</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">Ansible</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Bash</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://gitlab.com/Perras2357" class="project-btn" target="_blank" rel="noopener noreferrer">GitLab</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-visual pv-streaming">
+          <div class="pv-kafka">
+            <div class="pv-kafka-row">
+              <div class="pv-kafka-prod">Producer</div>
+              <div class="pv-kafka-arrows">
+                <span class="pv-kafka-arrow">→</span>
+                <span class="pv-kafka-arrow">→</span>
+                <span class="pv-kafka-arrow">→</span>
+              </div>
+              <div class="pv-kafka-topic">Topic</div>
+              <div class="pv-kafka-arrows">
+                <span class="pv-kafka-arrow">→</span>
+                <span class="pv-kafka-arrow">→</span>
+                <span class="pv-kafka-arrow">→</span>
+              </div>
+              <div class="pv-kafka-cons">Consumer</div>
+            </div>
+            <div class="pv-kafka-label">Kafka · Streaming temps réel</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Streaming Data avec Kafka</div>
+          <p class="project-desc">
+            Architecture de traitement de données en temps réel avec Apache Kafka.
+            Ingestion de flux d'événements, transformation à la volée et stockage
+            dans un entrepôt analytique. Projet réalisé dans le cadre du Master Informatique Décisionnelle.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Kafka</span>
+            <span class="tag">Python</span>
+            <span class="tag">Hadoop / Hive</span>
+            <span class="tag">BigQuery</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/Perras2357" class="project-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -402,22 +781,49 @@
     <p class="eyebrow reveal">Contact</p>
     <h2 class="section-title reveal">Discutons</h2>
     <p class="section-sub reveal">
-      Je cherche un CDI à partir de Juillet2026,
+      Je cherche un CDI à partir de septembre 2026,
       idéalement en data engineering ou DevOps.
     </p>
-    <div class="contact-grid">
-      <a href="mailto:moiseperras2357@gmail.com" class="contact-card reveal">
-        <div class="contact-label">Email</div>
-        <div class="contact-value">moiseperras2357@gmail.com</div>
-      </a>
-      <a href="https://www.linkedin.com/in/mo%C3%AFse-ndam-perras/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bf%2BfCwP19T4KefG9svNEvtA%3D%3D" class="contact-card reveal">
-        <div class="contact-label">LinkedIn</div>
-        <div class="contact-value">Moïse NDAM PERRAS</div>
-      </a>
-      <a href="tel:+33605591535" class="contact-card reveal">
-        <div class="contact-label">Téléphone</div>
-        <div class="contact-value">+33 6 05 59 15 35</div>
-      </a>
+
+    <div class="contact-layout">
+
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Nom *</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet ou votre demande..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Envoyer le message</button>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+
+      <div class="contact-info reveal">
+        <p class="contact-info-intro">Ou contactez-moi directement :</p>
+        <div class="contact-links">
+          <a href="mailto:moiseperras2357@gmail.com" class="contact-card">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">moiseperras2357@gmail.com</div>
+          </a>
+          <a href="https://www.linkedin.com/in/mo%C3%AFse-ndam-perras/" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">Moïse NDAM PERRAS</div>
+          </a>
+          <a href="tel:+33605591535" class="contact-card">
+            <div class="contact-label">Téléphone</div>
+            <div class="contact-value">+33 6 05 59 15 35</div>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -426,11 +832,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="footer-copy">© 2025 Moïse NDAM PERRAS</div>
-    <div class="footer-status">
-      <div class="status-dot"></div>
-      Tous les services opérationnels
-    </div>
+    <div class="footer-copy">© 2026 Moïse NDAM PERRAS</div>
   </div>
 </footer>
 

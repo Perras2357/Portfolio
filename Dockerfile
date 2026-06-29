@@ -1,7 +1,7 @@
 FROM nginx:1.27-alpine
 
 # Copie le portfolio
-COPY src/* /usr/share/nginx/html/
+COPY src/ /usr/share/nginx/html/
 
 # Config nginx légère — gzip + cache statique
 COPY nginx.conf /etc/nginx/conf.d/default.conf
