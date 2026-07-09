@@ -377,26 +377,6 @@
         </div>
       </div>
 
-      <div class="step reveal">
-        <div class="step-num">6</div>
-        <div class="step-body">
-          <div class="step-label">Automatisation</div>
-          <div class="step-title">Semaphore CI/CD & Maintenance</div>
-          <p class="step-desc">
-            Toute l'infrastructure est administrée via Ansible, orchestré par Semaphore. 
-            Des jobs automatisés gèrent la mise à jour des paquets et le déploiement 
-            de configurations sur les LXC. Cliquez pour voir l'état des derniers déploiements.
-          </p>
-          <a href="https://gitlab.perras.fr/adminperras/homelab-ansible/-/tree/developpement?ref_type=heads" class="step-link" target="_blank" rel="noopener noreferrer">Voir les scripts</a>
-          <div class="step-tags">
-            <span class="tag">Ansible</span>
-            <span class="tag">Semaphore UI</span>
-            <span class="tag">Infrastructure as Code</span>
-            <span class="tag">GitOps</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -785,6 +765,37 @@
           </div>
           <div class="project-actions">
             <a href="https://github.com/Perras2357" class="project-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-visual pv-cicd">
+          <div class="pv-terminal">
+            <div class="pv-terminal-bar"><span class="pv-title">ansible-playbook · update.yml</span></div>
+            <div class="pv-lines">
+              <div class="pv-line"><span class="pv-ok">✓</span> Task: Update cache · OK</div>
+              <div class="pv-line"><span class="pv-ok">✓</span> Task: Upgrade packages · OK</div>
+              <div class="pv-line"><span class="pv-ok">✓</span> Task: Cleanup · OK</div>
+              <div class="pv-line pv-cursor">ansible@semaphore:~$ _</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Ansible & Semaphore Automation</div>
+          <p class="project-desc">
+            Orchestration de la maintenance du cluster via Ansible. Mise en place de 
+            pipelines GitOps sur Semaphore pour le provisionnement et la mise à jour 
+            automatisée des conteneurs LXC depuis un dépôt GitLab dédié.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Ansible</span>
+            <span class="tag">Semaphore</span>
+            <span class="tag">GitOps</span>
+            <span class="tag">Bash</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://gitlab.perras.fr/adminperras/homelab-ansible/-/tree/developpement?ref_type=heads" class="project-btn" target="_blank" rel="noopener noreferrer">Dépôt Ansible</a>
           </div>
         </div>
       </div>
