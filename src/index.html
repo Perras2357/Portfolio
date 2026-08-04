@@ -59,7 +59,7 @@
       </div>
       <h1>Moïse<br><span class="dim">PERRAS</span></h1>
       <p class="hero-sub">
-        Étudiant Master <strong>Informatique </strong> @ Paris Saclay.<br>
+        Diplomé d'un Master <strong>Informatique </strong> @ Paris Saclay.<br>
         Je conçois et administre une infrastructure complète : cluster Proxmox,
         SSO Keycloak, monitoring Grafana, Nextcloud, réseau Headscale. 
         <strong>Sur mon HomeLab.</strong>
@@ -266,11 +266,10 @@
     </p>
 
     <div class="scenario-intro reveal">
-      <strong>Comment fonctionne ce scénario ?</strong> En suivant ces 5 étapes dans l'ordre,
-      vous allez vous authentifier via SSO, consulter des dashboards de monitoring en temps réel,
-      accéder à un espace de stockage partagé et lire la documentation technique, 
-      accéder au GitLab auto-hebergé et voir les différents pipelines CI/CD, 
-      visualiser les workFlow N8N.
+      <strong>Comment fonctionne ce scénario ?</strong> En suivant ces 6 étapes dans l'ordre,
+      vous allez vous authentifier via SSO, consulter des dashboards de monitoring,
+      accéder à un espace de stockage partagé, lire la documentation technique, 
+      explorer les pipelines CI/CD, et enfin interagir avec une IA générative locale et sécurisée.
     </div>
 
     <div class="steps">
@@ -367,11 +366,29 @@
             avec enregistrement des sessions, gestion des permissions par rôle et MFA.
             En démonstration : accès à l'interface en lecture seule, sans exécution de commandes.
           </p>
-          <a href="https://bifrost.perras.fr" class="step-link" target="_blank" rel="noopener noreferrer">Ouvrir Jumpserver</a>
           <div class="step-tags">
             <span class="tag">Jumpserver</span>
             <span class="tag">SSH Bastion</span>
             <span class="tag">Session recording</span>
+            <span class="tag">RBAC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPE 6 : IA -->
+      <div class="step reveal">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <div class="step-label">Intelligence Artificielle</div>
+          <div class="step-title">Open WebUI : IA Locale & Sécurisée</div>
+          <p class="step-desc">
+            Interrogez des modèles de langage (Llama 3.2, qwen2.5) hébergés localement sur le cluster via le serveur Ollama. L'accès à cette interface est strictement contrôlé par le SSO Keycloak, démontrant une intégration privée et maîtrisée de l'IA générative.
+          </p>
+          <a href="https://keycloak.perras.fr/realms/KeycloakTest/protocol/openid-connect/auth?response_type=code&client_id=turing-oid&redirect_uri=https%3A%2F%2Fturing.perras.fr%2Foauth%2Foidc%2Fcallback&scope=openid+email+profile&state=6DBp9tKumuphv9EEFbwqgXreHAF0y9&nonce=jnbsw9N9e6ZweqTDT5qZ" class="step-link" target="_blank" rel="noopener noreferrer">Ouvrir l'interface IA</a>
+          <div class="step-tags">
+            <span class="tag">Open WebUI</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">Llama 3.2</span>
             <span class="tag">RBAC</span>
           </div>
         </div>
@@ -637,6 +654,43 @@
           <div class="project-actions">
             <a href="https://wiki.perras.fr" class="project-btn" target="_blank" rel="noopener noreferrer">Wiki</a>
             <a href="#scenario" class="project-btn project-btn-outline">Demo guidée</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        
+        <div class="project-visual pv-infra">
+          <div class="pv-terminal">
+            <div class="pv-terminal-bar">
+              <span class="pv-dot"></span><span class="pv-dot"></span><span class="pv-dot"></span>
+              <span class="pv-title">docker logs open-webui</span>
+            </div>
+            <div class="pv-lines">
+              <div class="pv-line"><span class="pv-ok">✓</span> SSO Keycloak auth <span class="pv-dim">guest_user</span></div>
+              <div class="pv-line"><span class="pv-ok">✓</span> Ollama API (192.168.x.x) <span class="pv-dim">connected</span></div>
+              <div class="pv-line"><span class="pv-ok">✓</span> Model llama3.2:latest <span class="pv-dim">loaded in RAM</span></div>
+              <div class="pv-line">>>> User: "Génère un script Python"</div>
+              <div class="pv-line pv-cursor">Generating response_</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-body">
+          <div class="project-title">Plateforme IA Générative Privée</div>
+          <p class="project-desc">
+            Déploiement d'une infrastructure LLM souveraine (Llama 3.2, qwen2.5) via Ollama et Open WebUI. 
+            L'accès à l'interface est entièrement sécurisé par un SSO (Keycloak / OpenID Connect) 
+            permettant l'attribution des rôles (RBAC) et la centralisation des identités.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Open WebUI</span>
+            <span class="tag">Ollama (LLM)</span>
+            <span class="tag">Keycloak (OIDC)</span>
+            <span class="tag">Docker</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://keycloak.perras.fr/realms/KeycloakTest/protocol/openid-connect/auth?response_type=code&client_id=turing-oid&redirect_uri=https%3A%2F%2Fturing.perras.fr%2Foauth%2Foidc%2Fcallback&scope=openid+email+profile&state=6DBp9tKumuphv9EEFbwqgXreHAF0y9&nonce=jnbsw9N9e6ZweqTDT5qZ" class="project-btn" target="_blank" rel="noopener noreferrer">Interface WebUI</a>
           </div>
         </div>
       </div>
